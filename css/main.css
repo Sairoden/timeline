@@ -1,0 +1,158 @@
+:root {
+  --primary-color: #425b84;
+  --secondary-color: #5b7bb4;
+  --max-width: 1100px;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  font: normal 1.6rem/1.6 "Arial", sans-serif;
+  background: var(--primary-color);
+  color: #fff;
+  overflow-x: hidden;
+  padding-bottom: 5rem;
+}
+
+#main-header {
+  background: var(--secondary-color);
+  padding: 4rem 0;
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  text-align: center;
+}
+
+h1 {
+  font-size: 2.3rem;
+}
+
+#timeline ul {
+  background: var(--primary-color);
+  padding: 5rem 0;
+}
+
+#timeline ul li {
+  list-style: none;
+  position: relative;
+  width: 0.6rem;
+  margin: 0 auto;
+  padding-top: 5rem;
+  background: #fff;
+}
+
+#timeline ul li div {
+  position: relative;
+  bottom: 0;
+  width: 40rem;
+  padding: 1rem;
+  background: var(--secondary-color);
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  visibility: hidden;
+  opacity: 0;
+}
+
+#timeline ul li:nth-child(odd) div {
+  left: 4rem;
+  -webkit-transform: translate(20rem, 0);
+          transform: translate(20rem, 0);
+}
+
+#timeline ul li:nth-child(odd) div::before {
+  content: "";
+  left: -1.5rem;
+  border-width: 0.8rem 1.6rem 0.8rem 0;
+  border-color: transparent var(--secondary-color) transparent transparent;
+}
+
+#timeline ul li:nth-child(even) div {
+  left: -43.4rem;
+  -webkit-transform: translate(-20rem, 0);
+          transform: translate(-20rem, 0);
+}
+
+#timeline ul li:nth-child(even) div::before {
+  content: "";
+  right: -1.5rem;
+  border-width: 0.8rem 0 0.8rem 1.6rem;
+  border-color: transparent transparent transparent var(--secondary-color);
+}
+
+#timeline ul li::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+  background: inherit;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  border-radius: 50%;
+  -webkit-transition: background 0.5s ease-in-out;
+  transition: background 0.5s ease-in-out;
+}
+
+#timeline ul li.show::after {
+  background: var(--secondary-color);
+}
+
+#timeline ul li.show div {
+  -webkit-transform: none;
+          transform: none;
+  visibility: visible;
+  opacity: 1;
+}
+
+#timeline div::before {
+  content: "";
+  position: absolute;
+  bottom: 0.5rem;
+  width: 0;
+  height: 0;
+  border-style: solid;
+}
+
+@media only screen and (max-width: 900px) {
+  #timeline ul li div {
+    width: 25rem;
+  }
+  #timeline ul li:nth-child(even) div {
+    left: -28.4rem;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  #timeline ul li {
+    margin-left: 2rem;
+  }
+  #timeline ul li div {
+    width: calc(100vw - 9rem);
+  }
+  #timeline ul li:nth-child(even) div {
+    left: 4rem;
+  }
+  #timeline ul li:nth-child(even) div::before {
+    content: "";
+    left: -1.5rem;
+    border-width: 0.8rem 1.6rem 0.8rem 0;
+    border-color: transparent var(--secondary-color) transparent transparent;
+  }
+}
+/*# sourceMappingURL=main.css.map */
